@@ -50,7 +50,7 @@ exports.userCtrl = {
                 return res.status(400).json({ msg: 'cart already empty' })
             }
 
-            user.myCart = []
+            user.myCart = [];
             user.save()
             return res.json({ msg: "All courses in cart deleted" })
 
@@ -157,7 +157,7 @@ exports.userCtrl = {
             res.json(courses)
         }
         catch (err) {
-            console.log(err)
+             console.log(err)
         }
     },
     getMylearning: async (req, res) => {
