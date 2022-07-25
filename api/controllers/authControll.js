@@ -25,7 +25,7 @@ exports.authCtrl = {
             if (validation.error)
                 return res.json(validation.error.details)
             let user = await UserModel.findOne({ email: req.body.email })
-            if (user) return res.status(400).json({ msg_err: "email already exists" })
+            if (user) return res.status(400).json({ msg_err: "email already exists",code:11000 })
             let newUser = await UserModel.create(req.body)
             newUser.password = await bcrypt.hash(req.body.password, 10)
             newUser.emailToken = crypto.randomBytes(64).toString('hex')
