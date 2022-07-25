@@ -19,4 +19,5 @@ router.get("/getWishList",authUser,userCtrl.getWishList)
 router.get("/getMyCart",authUser,userCtrl.getMyCart)
 router.get("/getMyInfoAcount",authUser,userCtrl.getMyInfoAcount)
 router.put("/editMyInfoAcount",authUser,userCtrl.editMyInfoAcount)
+router.get("/checkToken",authUser,userCtrl.checkToken)
 module.exports = router;

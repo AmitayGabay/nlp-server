@@ -157,7 +157,7 @@ exports.userCtrl = {
             res.json(courses)
         }
         catch (err) {
-             console.log(err)
+            console.log(err)
         }
     },
     getMylearning: async (req, res) => {
@@ -254,6 +254,14 @@ exports.userCtrl = {
             if (validation.error) return res.json(validation.error.details)
             let resp = await UserModel.updateOne({ _id: req.tokenData.userData._id }, req.body)
             res.json(resp)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    },
+    checkToken: async (req, res) => {
+        try {
+            res.json({status:true})
         }
         catch (err) {
             console.log(err)
