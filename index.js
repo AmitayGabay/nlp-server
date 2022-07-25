@@ -6,11 +6,6 @@ const app = express()
 require('./api/db/mongoConnect')
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-routesInit(app);
-const server = http.createServer(app);
-let port = process.env.PORT || "3000";
-server.listen(port, () => { console.log("api work") });
-
 app.all('*', (req, res, next) => {
     if (!req.get('Origin')) return next();
     res.set('Access-Control-Allow-Origin', '*');
@@ -18,5 +13,11 @@ app.all('*', (req, res, next) => {
     res.set('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,auth-token,x-api-key');
     next();
 });
+routesInit(app);
+const server = http.createServer(app);
+let port = process.env.PORT || "3000";
+server.listen(port, () => { console.log("api work") });
+
+
 
 
