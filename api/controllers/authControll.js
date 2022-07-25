@@ -64,7 +64,7 @@ exports.authCtrl = {
         let { email, password } = req.body
         try {
             let user = await UserModel.findOne({ email })
-            if (!user) return res.json({ msg_err: "account not found",wrongEmail:true}).status(400)
+            if (!user) return res.status(400).json({ msg_err: "account not found",wrongEmail:true})
             if (await bcrypt.compare(password, user.password)) {
                 let userData = { _id: user._id, role: user.role, firstName: user.fullName.firstName }
                 return res.json({ token: jwt.sign({ userData }, secretTokenWord, { expiresIn: "300mins" }) })
