@@ -261,7 +261,7 @@ exports.userCtrl = {
     },
     checkToken: async (req, res) => {
         try {
-            res.json({status:true})
+            res.json({status:true,role:req.tokenData.userData.role})
         }
         catch (err) {
             console.log(err)
