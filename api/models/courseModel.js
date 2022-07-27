@@ -31,6 +31,7 @@ const courseSchema = new mongoose.Schema({
     categoryName:String,
     price:Number,
     img_url:String,
-    creator_id:String
+    creator_id:String,
+    difficulty:String
 })
 exports.courseModel = mongoose.model("courses", courseSchema)
