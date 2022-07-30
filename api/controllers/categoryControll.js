@@ -2,6 +2,16 @@ const { genShortId } = require("../helpers/genShortId")
 const { CategoryModel } = require("../models/categoryModel")
 
 exports.categoryCtrl = {
+    getCategories:async (req, res)=>{
+        try{
+            let categories=await CategoryModel.find({});
+            return res.json(categories)
+        }
+        catch(err){
+            console.log(err)
+        }
+
+    },
     addCtegory: async (req, res) => {
         try {
             let category = await CategoryModel.create(req.body)

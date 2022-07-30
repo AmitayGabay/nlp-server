@@ -268,5 +268,4 @@ exports.userCtrl = {
         }
     }
 
-
 }
