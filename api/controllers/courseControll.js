@@ -23,7 +23,8 @@ exports.courseCtrl = {
             return res.json(newCourse)
         }
         catch (err) {
-            return console.log(err)
+            console.log(err)
+            return res.json({err})
         }
     },
     deleteCourse: async (req, res) => {
