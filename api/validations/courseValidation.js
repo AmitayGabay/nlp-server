@@ -8,7 +8,7 @@ exports.courseValid = {
             categoryShortId: Joi.string().required(),
             price: Joi.number().required(),
             img_url: Joi.string().max(10000),
-            difficulty:Joi.string.required(),
+            difficulty:Joi.string(),
         })
         return validation.validate(reqBody)
     },

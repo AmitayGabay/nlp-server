@@ -10,7 +10,6 @@ exports.courseCtrl = {
         try {
             let validation = courseValid.addCourse(req.body)
             if (validation.error) return res.json(validation.error.details)
-
             let newCourse = await courseModel.create(req.body);
             newCourse.creator_id = req.tokenData.userData._id
             newCourse.short_id = await genShortId(100000, 1000000, courseModel)
