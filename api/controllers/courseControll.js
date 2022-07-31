@@ -24,7 +24,6 @@ exports.courseCtrl = {
         }
         catch (err) {
             console.log(err)
-            return res.json({err})
         }
     },
     deleteCourse: async (req, res) => {
