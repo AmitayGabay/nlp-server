@@ -153,7 +153,7 @@ exports.userCtrl = {
     getMyCourses: async (req, res) => {
         try {
             let user = await UserModel.findOne({ _id: req.tokenData.userData._id })
-            let courses = await courseModel.find({ short_id: user.myCourses }).select("short_id img_url name").sort("-1")
+            let courses = await courseModel.find({ short_id: user.myCourses }).select("short_id img_url name").sort({_id:-1})
             res.json(courses)
         }
         catch (err) {
