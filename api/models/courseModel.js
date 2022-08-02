@@ -10,7 +10,8 @@ let lessonObject = {
     link:String,
     views_id: [String],
     FAQ :[QAndAObject],
-    files_link:String
+    files_link:String,
+    info:String
 }
 
 const courseSchema = new mongoose.Schema({

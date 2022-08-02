@@ -26,7 +26,8 @@ exports.courseValid = {
         let validation = Joi.object({
             name: Joi.string().required().min(2).max(100),
             link: Joi.string().required().max(10000),
-            files_link: Joi.string().allow(null, "").max(10000)
+            files_link: Joi.string().allow(null, "").max(10000),
+            info:Joi.string().max(255).allow(null, "")
         })
         return validation.validate(reqBody)
     },

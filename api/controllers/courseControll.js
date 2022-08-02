@@ -126,7 +126,8 @@ exports.courseCtrl = {
                 if (item._id == lessonId) {
                     item.name = data.name
                     item.link = data.link
-                    item.files_link = data.link
+                    item.files_link = data.files_link
+                    item.info=data.info
                     flag = false
                 }
             })
