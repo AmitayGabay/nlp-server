@@ -3,6 +3,7 @@ const { secretTokenWord } = require('../../../config/secret')
 
 exports.authUser = (req, res, next) => {
   let token = req.header("apiKey")
+  console.log(token)
   if (!token) return res.json({ msg: "you don't have a token for this end-point" })
   try {
     let decodeToken = jwt.verify(token, secretTokenWord)
