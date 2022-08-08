@@ -2,16 +2,17 @@ const jwt = require('jsonwebtoken')
 const { secretTokenWord } = require('../../../config/secret')
 
 exports.authUser = (req, res, next) => {
-  let token = req.header("apiKey")
-  console.log(token)
-  if (!token) return res.json({ msg: "you don't have a token for this end-point" })
   try {
+    let token = req.header("apiKey")
+    console.log(token)
+    if (!token) return res.json({ msg: "you don't have a token for this end-point" })
+
     let decodeToken = jwt.verify(token, secretTokenWord)
     req.tokenData = decodeToken
     next()
   }
   catch (err) {
-    res.json({err,msg:"invalid decodeing"})
+    res.json({ err, msg: "invalid decodeing" })
   }
 }
 
@@ -24,7 +25,7 @@ exports.authAdmin = (req, res, next) => {
       req.tokenData = decodeToken
       next()
     }
-    else return res.json({msg_err:"you must to be admin to be in this end-point"})
+    else return res.json({ msg_err: "you must to be admin to be in this end-point" })
   }
   catch (err) {
     res.json(err)
