@@ -5,6 +5,7 @@ exports.authUser = (req, res, next) => {
   try {
     let token = req.header("apiKey")
     if (!token) return res.json({ msg: "you don't have a token for this end-point" })
+    console.log(token)
     let decodeToken = jwt.verify(token, secretTokenWord)
     req.tokenData = decodeToken
     next()
