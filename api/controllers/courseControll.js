@@ -47,9 +47,11 @@ exports.courseCtrl = {
             let validation = courseValid.addCourse(req.body)
             if (validation.error) return res.json(validation.error.details)
             let shortId = req.query.shortId;
+            let category=await CategoryModel.findOne({shortId:req.body.categoryShortId}).select("name")
+            req.body.categoryName=category.name;
             let resp = await courseModel.updateOne({ short_id: shortId, creator_id: req.tokenData.userData._id }, req.body)
             res.json(resp)
-        }
+        } 
         catch (err) {
             return console.log(err)
         }
