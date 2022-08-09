@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", async(req, res) => {
     try {
-        let clients =await clientModel.find({})
+        let clients =await clientModel.find({}).sort({_id:-1});
         return res.json(clients)
     }
     catch(err){
