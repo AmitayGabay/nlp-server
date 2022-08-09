@@ -9,4 +9,4 @@ const clientSchema = mongoose.Schema({
     mail:String,
 })
 
-module.exports =mongoose.model(clientSchema,"clients")
+module.exports =mongoose.model("clients",clientSchema)
