@@ -2,6 +2,7 @@ const express = require("express")
 const path = require("path")
 const http = require("http")
 const routesInit = require("./api/routes/routes-configuration")
+
 const app = express()
 require('./api/db/mongoConnect')
 app.use(express.json());
