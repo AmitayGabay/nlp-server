@@ -17,6 +17,7 @@ router.post("/", async (req, res) => {
         let formData = req.body;
         await clientModel.create(formData)
         res.json({ msg: "clientAded" })
+        console.log(req.body)
     }
     catch (err) {
         console.log(err)
