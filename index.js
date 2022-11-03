@@ -4,6 +4,7 @@ const http = require("http")
 const routesInit = require("./api/routes/routes-configuration")
 
 const app = express()
+require("dotenv").config();
 require('./api/db/mongoConnect')
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));

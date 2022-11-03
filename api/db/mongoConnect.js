@@ -1,5 +1,5 @@
-const { mongoUserName, mongoPassword } = require('../../config/secret.js')
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { mongoUserName, mongoPassword } = process.env;
 
 const main = async () => {
     await mongoose.connect(`mongodb+srv://${mongoUserName}:${mongoPassword}@cluster0.t0e15tv.mongodb.net/nlp`)
