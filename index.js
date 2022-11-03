@@ -16,8 +16,8 @@ app.all('*', (req, res, next) => {
 });
 routesInit(app);
 const server = http.createServer(app);
-let port = process.env.PORT || "3000";
-server.listen(port, () => { console.log("api work") });
+let port = process.env.PORT || "8000";
+server.listen(port, () => { console.log("server listen port " + port) });
 
 
 
